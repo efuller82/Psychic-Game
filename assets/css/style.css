@@ -2,3 +2,16 @@ h1 {
     font-size:  25px;
     font-weight: bold;
 }
+
+body {
+    height: 50%;
+    width: 50%;
+    margin: 15% auto;
+    text-align: center;
+    line-height: 5vh;
+    background-color: blue;
+}
+
+.container {
+    background-color: aqua;
+}
