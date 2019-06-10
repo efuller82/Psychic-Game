@@ -2,10 +2,9 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 
 var wins = 0;
 var losses = 0;
-var guesses = 10;
+var guessesLeft = 9;
 var guessesSoFar = [""];
     var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
-
     console.log(computerChoice);
 
 document.onkeypress = function(event) {
@@ -13,17 +12,22 @@ document.onkeypress = function(event) {
 
     if(userGuess === computerChoice) {
         wins++;
+        guessesLeft = 9;
+        guessesSoFar = [];
+               
     } else {
-        guesses--;
+        guessesLeft--;
     }
-    if(guesses = 0) {
+    if(guessesLeft === 0) {
         losses++
+        guessesLeft = 9;
+        guessesSoFar = [];
     }
     if(userGuess !== computerChoice) {
         guessesSoFar.push(userGuess);
     }
     document.getElementById("wins").innerHTML = "Wins: " + wins;
     document.getElementById("losses").innerHTML = "Losses: " + losses;
-    document.getElementById("guesses_left").innerHTML = "Guesses Left: " + guesses;
+    document.getElementById("guesses_left").innerHTML = "Guesses Left: " + guessesLeft;
     document.getElementById("guesses_so_far").innerHTML = "Guesses So Far: " + guessesSoFar;
 }
