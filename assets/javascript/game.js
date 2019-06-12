@@ -3,7 +3,7 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
-var guessesSoFar = [""];
+var guessesSoFar = [];
         var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
         console.log(computerChoice);
     
@@ -21,17 +21,18 @@ document.onkeypress = function(event) {
     } else {
         guessesLeft--;
     }
+    if(userGuess !== computerChoice) {
+        guessesSoFar.push(userGuess);
+    }
     if(guessesLeft === 0) {
         losses++
         guessesLeft = 9;
         guessesSoFar = [];
-        alert("You suck!");
+        alert("You lose!");
         computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
         console.log(computerChoice);
     }
-    if(userGuess !== computerChoice) {
-        guessesSoFar.push(userGuess);
-    }
+    
 
     document.getElementById("wins").innerHTML = "Wins: " + wins;
     document.getElementById("losses").innerHTML = "Losses: " + losses;
