@@ -2,7 +2,7 @@ var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 
 var wins = 0;
 var losses = 0;
-var guessesLeft = 9;
+var guessesLeft = 10;
 var guessesSoFar = [];
         var computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
         console.log(computerChoice);
@@ -12,25 +12,31 @@ document.onkeypress = function(event) {
 
     if(userGuess === computerChoice) {
         wins++;
-        guessesLeft = 9;
+        guessesLeft = 10;
         guessesSoFar = [];
         alert("You win!");
         computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
         console.log(computerChoice);
-               
-    } else {
+    }          
+     else {
         guessesLeft--;
-    }
+        }
+    
     if(userGuess !== computerChoice) {
         guessesSoFar.push(userGuess);
     }
     if(guessesLeft === 0) {
         losses++
-        guessesLeft = 9;
+        guessesLeft = 10;
         guessesSoFar = [];
         alert("You lose!");
         computerChoice = alphabet[Math.floor(Math.random() * alphabet.length)];
         console.log(computerChoice);
+    }
+    
+    //this fixed "guessesSoFar" starting with previous win letter
+    if(guessesLeft === 10) {
+        guessesSoFar = [];
     }
     
 
