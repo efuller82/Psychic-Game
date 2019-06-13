@@ -6,12 +6,19 @@ h1 {
 body {
     height: 50%;
     width: 50%;
-    margin: 15% auto;
+    margin: 15% 0%;
     text-align: center;
     line-height: 5vh;
-    background-color: blue;
+    background-image:url(../images/zoltar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
-    background-color: aqua;
+    background-color: transparent;
+    display: inline-block;
+    padding: 2vw;
+    color: white;
+    font-size: larger;
 }
+
